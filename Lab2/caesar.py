@@ -10,7 +10,7 @@ def main():
         exit()
     
     if(int(sys.argv[2]) not in range(-25,26)):
-        print("Key value out of alphabetical range (1 < K < 26)")
+        print("Key value out of alphabetical range (-26 < K < 26)")
         exit()
 
     message = sys.argv[1]
