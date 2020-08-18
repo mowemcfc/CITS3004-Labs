@@ -43,6 +43,8 @@ int main(void) {
     BN_mod_exp(ct, msg, e, n, ctx);
     printBN("encrypted message: ", ct);
 
+    BN_hex2bn(&ct, "24C89C26F6DA860963AF6A6CC6335ED8176A71BADF4771C7726D09E66A6BE4AB");
+
     BN_mod_exp(pt, ct, d, n, ctx);
     printBN("decrypted message: ", pt);
 

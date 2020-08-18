@@ -27,15 +27,15 @@ int main(void) {
     BIGNUM *p = BN_new();
     BIGNUM *q = BN_new();
     BIGNUM *e = BN_new();
+    BIGNUM *msg = BN_new();
 
     BN_hex2bn(&p, "F7E75FDC469067FFDC4E847C51F452DF");
     BN_hex2bn(&q, "E85CED54AF57E53E092113E62F436F4F");
     BN_hex2bn(&e, "0D88C3");
+    BN_hex2bn(&msg, "4d65657420617420313630302e20436f6d6520616c6f6e652e");
 
     BIGNUM *n = BN_new();
     BN_mul(n, p, q, ctx); // n = p*q
-
-
 
     BIGNUM *phi = BN_new();
     BIGNUM *phi_p = BN_new();
@@ -47,8 +47,17 @@ int main(void) {
     // Public key is (e, n) - find (d, n) via computing modular inverse
     BIGNUM *d = BN_new();
     BN_mod_inverse(d, e, phi, ctx);
-
     printBN("d is: ", d);
+
+    BIGNUM *ct = BN_new();
+    BIGNUM *pt = BN_new();
+
+    BN_mod_exp(ct, msg, e, n, ctx);
+    printBN("encrypted message: ", ct);
+
+    BN_mod_exp(pt, ct, d, n, ctx);
+    printBN("decrypted message: ", pt);
+
 
 
     return 0;
