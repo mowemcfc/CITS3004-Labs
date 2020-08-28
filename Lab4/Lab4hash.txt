@@ -1,0 +1,4 @@
+MD5(Lab4.pdf)= fa7f76020a3a832099697882bf07b44e
+SHA256(Lab4.pdf)= bcf73b85a644a01c09b846cd7737b7998b1eb115e002f1e8963c76dfef7260ac
+SHA1(Lab4.pdf)= 0081f937c97994d3eb816d4d6747503fef0da184
+different hashes of Lab4.pdf above
